@@ -1,0 +1,90 @@
+﻿<html>
+<head></head>
+<meta charset="utf-8">
+<style> 
+   html { height: 100%; }
+   body {
+    margin: 0; /* Убираем отступы *
+    height: 100%; /* Высота страницы */
+    background: url(/static/img/10.jpg); /* Параметры фона */
+    background-size: cover; /* Фон занимает всю доступную площадь */
+   } 
+  </style>
+<body>
+<form name="f">
+    
+ <table  border="0" cellspacing="5" cellpadding="5">
+   <tr>
+    <td align="right" valign="top"><font face="Comic Sans MS" size="+1" color="#8B008B">Имя</font></td>
+    <td><input type="text" name="n" id="n" size="25"></td>
+
+   <tr>
+    <td align="right" valign="top"><font face="Comic Sans MS" size="+1" color="#8B008B">Фамилия</font></td>
+    <td><input type="text" name="f" id="f" size="25"></td>
+   </tr>
+
+   <tr>
+    <td align="right" valign="top" ><font face="Comic Sans MS" size="+1" color="#8B008B">e-mail</font></td>
+    <td>
+     <input type="text" name="m" id="m" size="25">
+    </td>
+   </tr>
+
+   <tr>
+    <td align="right" valign="top" ><font face="Comic Sans MS" size="+1" color="#8B008B">Город</font></td>
+    
+    <td>
+    <select name="c" size="1">
+      <option selected value="b">Бишкек
+      <option value="o">Ош
+      <option value="kk">Каракол
+      <option value="kn">Кант
+      <option value="kb">Кара-Балта
+      <option value="nr">Нарын
+  </select>
+  </td></tr>
+  <tr>
+  <td align="right" valign="top" ><font face="Comic Sans MS" size="+1" color="#8B008B">Доставка</font></td>
+    <td>
+      <input type="radio" name="pl" value="y" checked>
+      да
+      <input type="radio" name="pl" value="n">
+      нет
+</td></tr></table>
+<br>Выберите язык обслуживания:<br>
+  <input type="checkbox" name="l1" value="ru" checked>русский
+  <input type="checkbox" name="l2" value="kg" > кыргызский
+  <input type="checkbox" name="l2" value="uz"> узбекский
+  <input type="checkbox" name="l2" value="tr"> турецкий<br>
+  <input type="checkbox" name="l2" value="en" > английский
+  <input type="checkbox" name="l2" value="gn"> немецкий
+  <input type="checkbox" name="l3" value="sp"> испанский
+  <input type="checkbox" name="l4" value="fr"> французский
+
+</form>
+  <input id="b" value="Оформить заказ" type="button">
+</font>
+</form>
+<br><br>
+
+<script>
+    document.getElementById('b').onclick = function() {
+  var a = document.getElementById('n').value.split('');
+  var  b = document.getElementById('f').value.split('');
+  var  c = document.getElementById('m').value.split('');
+  for(i=0;i<document.getElementById('n').value.length;i++)
+  if(1040>a[i].charCodeAt(0)||a[i].charCodeAt(0)>1103) 
+  {alert("Имя должно состоять только из буквы кириллицы!");document.getElementById('n').value="";exit;}
+  for(i=0;i<document.getElementById('f').value.length;i++)
+  if(1040>b[i].charCodeAt(0)||b[i].charCodeAt(0)>1103) 
+  {alert("Фамилия должно состоять только из буквы кириллицы!");document.getElementById('f').value="";exit;}
+  if (document.getElementById('n').value == '') {alert('Имя не должно быть пусто!');exit;}
+  if (document.getElementById('f').value == '') {alert('Фамилия не должно быть пусто!');exit;}
+  var k=0;if (document.getElementById('m').value == '') {alert('E-mail не должно быть пусто!');exit;}
+  for(i=0;i<document.getElementById('m').value.length;i++)
+  if(c[i].charCodeAt(0)==64||c[i].charCodeAt(0)==46) k++;
+  if(k!=2) {document.getElementById('m').value="";alert("Введите свою почту!");exit;}
+    }
+  </script>
+  </body>
+  </html>
